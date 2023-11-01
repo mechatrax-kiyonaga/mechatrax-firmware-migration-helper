@@ -1,0 +1,18 @@
+Source: mechatrax-firmware-migration-helper
+Section: misc
+Priority: optional
+Maintainer: Yuta Kiyonaga <kiyonaga@mechatrax.com>
+Uploaders: Masahiro Honda <honda@mechatrax.com>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 4.6.2
+Vcs-Git: https://github.com/mechatrax/mechatrax-firmware-migration-helper
+Vcs-browser: https://github.com/mechatrax/mechatrax-firmware-migration-helper
+Homepage: https://mechatrax.com/
+
+Package: mechatrax-firmware-migration-helper
+Architecture: all
+Provides: raspberrypi-bootloader
+Conflicts: raspberrypi-bootloader
+Description: firmware migration helper package for MechaTracks products
+ This package contains scripts to migrate firmware packages for MechaTracks
+ products.

@@ -1,0 +1,46 @@
+#!/bin/sh
+# postinst script for mechatrax-firmware-dummy
+#
+# see: dh_installdeb(1)
+
+set -e
+
+FIRMWARE_DIR=/boot/firmware
+SYMLINKS="config.txt cmdline.txt overlays"
+
+create_symbolic_links() {
+    for s in $SYMLINKS; do
+        if [ ! -e "/boot/$s" ]; then
+            ln -s $FIRMWARE_DIR/$s /boot/$s
+        fi
+    done
+}
+
+mount_firmware_dir() {
+    if mountpoint -q $FIRMWARE_DIR; then
+        return
+    fi
+    if [ -d "$FIRMWARE_DIR" ]; then
+        echo "mount $FIRMWARE_DIR"
+        mount $FIRMWARE_DIR
+    fi
+}
+
+case "$1" in
+    configure)
+        mount_firmware_dir
+        create_symbolic_links
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

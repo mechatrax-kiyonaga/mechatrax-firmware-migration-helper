@@ -1,0 +1,5 @@
+mechatrax-firmware-migration-helper (1.0.0) bookworm; urgency=low
+
+  * Initial release
+
+ -- Masahiro Honda <honda@mechatrax.com>  Wed, 01 Nov 2023 18:06:14 +0900
