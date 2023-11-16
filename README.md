@@ -1,11 +1,5 @@
 # mechatrax-firmware-migration-helper
 raspberrypi-bootloader から raspi-firmware への移行を支援するパッケージです。  
-ソースファイルからは次のパッケージが作成されます。  
-* mechatrax-firmware-migration-helper
-* mechatrax-firmware-dummy
-
-# mechatrax-firmware-migration-helper
-パッケージ移行時の事前設定を行います。
 
 ## 提供ファイル
 次のファイルがパッケージに含まれています。
@@ -13,27 +7,30 @@ raspberrypi-bootloader から raspi-firmware への移行を支援するパッ�
 ### /usr/share/doc/mechatrax-firmware-migration-helper/copylight
 パッケージに含まれるファイルの著作権を記述したファイルです。
 
-## 設定
-インストール時に次のファイルが変更されます。
+## 変更内容
+インストール時に次のファイルおよびディレクトリが変更されます。
 
 ### /etc/fstab
-/boot 表記が /boot/firmware に置き換えられます。
-/etc/fstab のバックアップファイルとして /etc/fstab.bak が作成されます。
+/boot を /boot/firmware に置換します。
+
+### /etc/fstab.bak
+/etc/fstab のバックアップファイルです。
 
 ### /boot/cmdline.txt
-/boot/firmware に移動し、/boot にシンボリックリンクが作成されます。
+/boot/firmware/cmdline.txt のシンボリックリンクです。
 
 ### /boot/config.txt
-/boot/firmware に移動し、/boot にシンボリックリンクが作成されます。
+/boot/firmware/config.txt のシンボリックリンクです。
 
 ### /boot/overlays
-/boot/firmware に移動し、/boot にシンボリックリンクが作成されます。
+/boot/firmware/overlays のシンボリックリンクです。
 
-# mechatrax-firmware-dummy
-パッケージ移行時の依存関係を解決するダミーパッケージです。
+### /boot/firmware/cmdline.txt
+/boot/cmdline.txt から移動されます。
 
-## 提供ファイル
-次のファイルがパッケージに含まれています。
+### /boot/firmware/config.txt
+/boot/config.txt から移動されます。
 
-### /usr/share/doc/mechatrax-firmware-dummy/copylight
-パッケージに含まれるファイルの著作権を記述したファイルです。
+### /boot/firmware/overlays
+/boot/overlays から移動されます。
+
