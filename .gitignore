@@ -1,0 +1,6 @@
+debian/.debhelper
+debian/debhelper-build-stamp
+debian/files
+debian/mechatrax-firmware-migration-helper
+debian/mechatrax-firmware-dummy
+debian/*.substvars
