@@ -7,14 +7,11 @@ raspberrypi-bootloader から raspi-firmware への移行を支援するパッ�
 ### /usr/share/doc/mechatrax-firmware-migration-helper/copylight
 パッケージに含まれるファイルの著作権を記述したファイルです。
 
-## 変更内容
+## 設定
 インストール時に次のファイルおよびディレクトリが変更されます。
 
 ### /etc/fstab
 /boot を /boot/firmware に置換します。
-
-### /etc/fstab.bak
-/etc/fstab のバックアップファイルです。
 
 ### /boot/cmdline.txt
 /boot/firmware/cmdline.txt のシンボリックリンクです。
