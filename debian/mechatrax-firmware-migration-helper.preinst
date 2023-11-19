@@ -23,7 +23,7 @@ case "$1" in
         init_firmware_dir
     ;;
 
-    abort-upgrade)
+    upgrade|abort-upgrade)
     ;;
 
     *)
