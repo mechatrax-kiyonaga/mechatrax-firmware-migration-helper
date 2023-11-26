@@ -11,9 +11,15 @@ Homepage: https://mechatrax.com/
 
 Package: mechatrax-firmware-migration-helper
 Architecture: all
-Provides: raspberrypi-bootloader, raspberrypi-kernel, raspberrypi-kernel-mtx, raspberrypi-kernel-headers, raspberrypi-kernel-headers-mtx
-Conflicts: raspberrypi-bootloader, raspberrypi-kernel, raspberrypi-kernel-mtx, raspberrypi-kernel-headers, raspberrypi-kernel-headers-mtx
-Recommends: sleepi3-firmware | adpi-firmware
 Description: firmware migration helper package for MechaTracks products
  This package contains scripts to migrate firmware packages for MechaTracks
  products.
+
+Package: mechatrax-firmware-dummy
+Architecture: all
+Provides: raspberrypi-bootloader
+Conflicts: raspberrypi-bootloader
+Pre-Depends: mechatrax-firmware-migration-helper
+Depends: raspi-firmware
+Description: transitional dummy package
+ This is a transitional dummy package for Raspberry Pi firmware.
