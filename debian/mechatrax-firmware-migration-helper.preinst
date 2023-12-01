@@ -5,16 +5,19 @@
 
 set -e
 
+BOOT_DIR=/boot
 FIRMWARE_DIR=/boot/firmware
 
 init_firmware_dir() {
-    if [ ! -d "$FIRMWARE_DIR" ]; then
+    if mountpoint -q $BOOT_DIR; then
         echo "unmount /boot"
-        umount /boot
-        mkdir $FIRMWARE_DIR
+        umount $BOOT_DIR
         echo "modified /etc/fstab and created backup /etc/fstab.bak"
-        sed -i.bak -e "s#boot#boot/firmware#" /etc/fstab
+        sed -i.bak -e "s#${BOOT_DIR}#${FIRMWARE_DIR}#" /etc/fstab
         systemctl daemon-reload
+    fi
+    if [ ! -d "$FIRMWARE_DIR" ]; then
+        mkdir $FIRMWARE_DIR
     fi
 }
 
